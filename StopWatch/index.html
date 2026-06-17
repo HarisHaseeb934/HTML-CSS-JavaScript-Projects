@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e9e7fc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #watch-container {
+            width: 600px;
+            height: 300px;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 70px;
+        }
+
+        #watch {
+            font-size: 60px;
+            color: white;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .icon {
+            color: black(170, 84, 84);
+            font-size: 30px;
+            background-color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .icon:hover{
+            scale: 1.1;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="watch-container">
+        <p id="watch">00:00:00</p>
+        <div class="btn">
+            <div class="icon" onclick="stopwatch()"><i class="fa-solid fa-stop"></i></div>
+            <div class="icon" onclick="startwatch()"><i class="fa-solid fa-play"></i></div>
+            <div class="icon" onclick="resetwatch()"><i class="fa-solid fa-rotate-right"></i></div>
+        </div>
+
+    </div>
+
+    <script>
+        let [s, h, m] = [0, 0, 0];
+        let p = document.querySelector("#watch");
+        let timer;
+        let sec;
+        let min;
+        let hour;
+
+        function watch() {
+            s++;
+            if (s === 60) {
+                m++;
+                s = 0;
+            }
+            if (m === 60) {
+                h++;
+                m = 0;
+            }
+            if (s < 10) {
+                sec = `${0}${s}`;
+            } else {
+                sec = s;
+            }
+
+            if (m < 10) {
+                min = `${0}${m}`;
+            } else {
+                min = m;
+            }
+
+            if (h < 10) {
+                hour = `${0}${h}`;
+            } else {
+                hour = h;
+            }
+            p.innerText = `${hour}:${min}:${sec}`;
+        }
+        function startwatch() {
+            if (timer != null) {
+                clearInterval(timer);
+            }
+            timer = setInterval(watch, 100);
+        }
+        function stopwatch() {
+            clearInterval(timer)
+        }
+        function resetwatch() {
+            [s, h, m] = [0, 0, 0];
+            clearInterval(timer)
+            p.innerText = `00:00:00`
+        }
+    </script>
+</body>
+
+</html>

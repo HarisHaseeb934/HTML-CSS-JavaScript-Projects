@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+    <style>
+        body {
+            width: 99vw;
+            height: 99vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+            overflow: hidden;
+        }
+
+        #btn {
+            font-size: 2rem;
+            border-radius: 1.7rem;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">Change Color</button>
+    <script>
+        let body = document.body
+        function randomColor(){
+            let color = "#"
+            let digit = "0123456789ABCDEF"
+            for(let i = 0; i<6;i++){
+                let random = Math.floor(Math.random()*16)
+                color += digit[random]
+            }
+            return color;
+        }
+        document.getElementById("btn").addEventListener("click", ()=>{
+            body.style.backgroundColor = randomColor();
+        })
+    </script>
+</body>
+
+</html>

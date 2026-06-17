@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #btn {
+            font-size: 25px;
+            font-family: "Roboto Condensed", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            padding: 10px;
+            background-color: rgb(98, 240, 98);
+            color: white;
+            border-radius: 15px;
+        }
+
+        .box {
+            width: 500px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            flex-direction: column;
+            gap: 30px;
+            position: absolute;
+            transform: translateY(-200%);
+            scale: 0;
+            transition: transform 1s;
+        }
+
+        .box h1 {
+            font-size: 35px;
+        }
+
+        .box p {
+            font-size: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .box button {
+            width: 80%;
+            height: 40px;
+            font-size: 25px;
+            background-color: rgb(98, 240, 98);
+            border: none;
+            color: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .box i {
+            color: rgb(98, 240, 98);
+            font-size: 80px;
+            position: absolute;
+            top: -22px;
+        }
+
+        .hide {
+            transform: translateY(0%);
+            scale: 100%;
+        }
+    </style>
+    <title>Popup</title>
+</head>
+
+<body>
+    <button id="btn" onclick="show()">Submit</button>
+    <div class="box">
+        <i class="fa-solid fa-circle-check"></i>
+        <h1>Thank You!</h1>
+        <p>Your details has been successfully submitted. Thanks!</p>
+        <button class="btnhide" onclick="hide()">OK</button>
+    </div>
+    <script>
+        let box = document.querySelector(".box");
+        function show() {
+            box.classList.add("hide");
+            console.log("Haris")
+        }
+        function hide() {
+            box.classList.remove("hide");
+            console.log("Haris")
+        }
+    </script>
+</body>
+
+</html>

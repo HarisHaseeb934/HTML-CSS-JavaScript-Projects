@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #212121;
+            display: flex;
+            justify-content: center;
+        }
+        #selector{
+            width: 300px;
+            margin-top: 100px;
+            font-size: 20px;
+        }
+        #select{
+            background-color: white;
+            width: 100%;
+            padding: 10px;
+        }
+        #list{
+            margin-top: 50px;
+            list-style: none;
+        }
+        .option{
+            background-color: white;
+            width: 100%;
+            padding: 10px;
+        }
+        .option:hover{
+            background-color: grey;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="selector">
+        <div id="select">
+            <p id="textfield">WhatsApp</p>
+        </div>
+        <ul id="list" class="hide">
+            <li class="option">
+                <p>WhatsApp</p>
+            </li>
+            <li class="option">
+                <p>FaceBook</p>
+            </li>
+            <li class="option">
+                <p>Instagram</p>
+            </li>
+            <li class="option">
+                <p>Snapchat</p>
+            </li>
+        </ul>
+    </div>
+    <script>
+        let select = document.querySelector("#select");
+        let textfield = document.querySelector("#textfield");
+        let list = document.querySelector("#list");
+        let options = document.querySelectorAll(".option");
+
+        select.addEventListener("click", ()=>{
+            list.classList.toggle("hide")    
+        })
+        options.forEach(option => {
+            option.addEventListener("click",(e)=>{
+                textfield.innerText = option.innerText;
+                list.classList.toggle("hide")  
+            })
+        })
+    </script>
+</body>
+</html>

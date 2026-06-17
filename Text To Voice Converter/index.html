@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text To Voice Converter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #18105D;
+            background: linear-gradient(139deg, rgba(24, 16, 93, 1) 0%, rgba(54, 18, 112, 1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            color: white;
+            width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin: 50px 0px 25px 0px;
+        }
+
+        h1 span {
+            color: red;
+            border-bottom: 3px solid white;
+        }
+
+        #text-area {
+            margin: 25px 0px 25px 0px;
+            width: 600px;
+            height: 300px;
+            outline: none;
+            background: #403d84;
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            font-size: 20px;
+            resize: none;
+        }
+        #text-area::placeholder{
+            color: white;
+        }
+        .select-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        #select{
+            height: 40px;
+            flex: 1;
+            border-radius: 20px;
+            outline: none;
+            border: none;
+            color: white;
+            background: #403d84;
+            padding: 10px;
+        }
+        #btn{
+            height: 40px;
+            width: 150px;
+            border-radius: 20px;
+            background-color: rgb(245, 65, 65);
+            border: none;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Text To Voice <span>Converter</span></h1>
+        <textarea name="" id="text-area" placeholder="Enter Text....."></textarea>
+        <div class="select-container">
+            <select name="" id="select">
+
+            </select>
+            <button id="btn">Listen</button>
+        </div>
+
+    </div>
+    <script>
+        let speech = new SpeechSynthesisUtterance();
+        let select = document.querySelector("#select");
+        let voices = [];
+        window.speechSynthesis.onvoiceschanged = () =>{
+            voices = window.speechSynthesis.getVoices();
+            voices.forEach((voice,i)=>{
+                let option = document.createElement("option");
+                option.innerText = `${voice.name} (${voice.lang})`;
+                option.value = i;
+                select.appendChild(option);
+            })
+        } 
+
+        select.addEventListener("change", (e)=>{
+            speech.voice = voices[select.value];
+            console.log(select.value);
+        })
+        
+        document.querySelector("#btn").addEventListener("click", ()=>{
+            speech.text = document.querySelector("#text-area").value;
+            window.speechSynthesis.speak(speech);
+        })
+    </script>
+</body>
+
+</html>

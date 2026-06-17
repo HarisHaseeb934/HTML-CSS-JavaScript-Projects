@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll The Dice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            height: 300px;
+            width: 90%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+        }
+
+        .btn {
+            font-size: 20px;
+            padding: 5px;
+            width: 80px;
+            border-radius: 10px;
+            border: none;
+            background-color: #e92e3d;
+            color: white;
+        }
+        p{
+            font-size: 20px;
+            color: #e92e3d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="images">
+            <img src="dice-01.svg" alt="" class="img1">
+            <img src="dice-02.svg" alt="" class="img2">
+        </div>
+        <p>Your Number is <span class="result"></span></p>
+        <button class="btn" onclick="roll()">Roll</button>
+    </div>
+    <script>
+        let dices = document.querySelectorAll(".img");
+        let images = [
+            "dice-01.svg",
+            "dice-02.svg",
+            "dice-03.svg",
+            "dice-04.svg",
+            "dice-05.svg",
+            "dice-06.svg"
+        ]
+        function roll() {
+            let diceOneValue = Math.floor(Math.random() * 6);
+            let diceTwoValue = Math.floor(Math.random() * 6);
+
+            document.querySelector(".img1").setAttribute("src", images[diceOneValue]);
+            document.querySelector(".img2").setAttribute("src", images[diceTwoValue]);
+            document.querySelector(".result").innerText = (diceOneValue + 1) + (diceTwoValue + 1);
+        }
+    </script>
+</body>
+
+</html>

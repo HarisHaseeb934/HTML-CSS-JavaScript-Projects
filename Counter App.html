@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        body{
+            background-color: #212121;
+        }
+        #reset {
+            font-size: 2rem;
+            padding: 1rem;
+            border-radius: 50px;
+        }
+
+        #sub,
+        #add {
+            border-radius: 25px;
+            font-size: 1.4rem;
+            padding: 10px;
+            width: 4rem;
+        }
+        .small:hover{
+            background-color: #968b8b;
+            cursor: pointer;
+            color: white;
+        }
+
+        p {
+            font-size: 5rem;
+            text-align: center;
+            color: white;
+        }
+        div{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>hello</p>
+    <div>
+        <button id="sub" class="small">-</button>
+        <button id="reset" class="small">Reset</button>
+        <button id="add" class="small">+</button>
+    </div>
+
+    <script>
+        let p = document.querySelector("p")
+        let count = 0
+        document.getElementById("sub").addEventListener("click", ()=>{
+            if(count<=0)return count
+            count--;
+            p.innerText = count
+        })
+        document.getElementById("reset").addEventListener("click", ()=>{
+            count = 0;
+            p.innerText = count
+        })
+        document.getElementById("add").addEventListener("click", ()=>{
+            count++;
+            p.innerText = count
+        })
+    </script>
+</body>
+
+</html>

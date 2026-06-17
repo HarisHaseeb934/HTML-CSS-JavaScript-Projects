@@ -1,0 +1,93 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #141a34;
+    height: 100vh;
+    font-family: "Open Sans", sans-serif;
+}
+#container{
+    background-color: white;
+    width: 500px;
+    height: 400px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 200px;
+}
+#logo i {
+    position: absolute;
+    top: -19px;
+    left: 45%;
+    font-size: 25px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 60px;
+}
+.input{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: center; 
+    position: relative;
+}
+label{
+    font-weight: 500;
+}
+
+.input input{
+    width: 250px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+#submit{
+    width: 100px;
+    height: 30px;
+    margin: auto;
+    background-color: #141a34;
+    color: white;
+    font-weight: 500;
+    border: none;
+}
+.input span{
+    position: absolute;
+    bottom: 20;
+    right: 0;
+    font-size: 12px;
+    color: red;
+}
+span{
+    color: red;
+    font-size: 15px;
+}
+span i {
+    color: green;
+    font-size: 15px;
+}

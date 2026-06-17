@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <title>Password Strength</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #212121;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #container{
+            position: relative;
+        }
+        .password-input{
+            height: 50px;
+            width: 400px;
+            background-color: transparent;
+            border: 1px solid gray;
+            padding-left: 10px;
+            color: white;
+        }
+        #btn{
+            position: absolute;
+            right: 5px; 
+            top: 10px;
+            border-radius: 50%;
+            border: none;
+        }
+        #btn i{
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #btn:hover{
+            background-color: gray;
+            color: white;
+        }
+        #paragraph{
+            color: white;
+            display: none;
+        }
+        .strong{
+            border: 1px solid rgb(73, 221, 73);
+        }
+        .weak{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="Password" placeholder="Password" class="password-input">
+        <button id="btn"><i class="fa-solid fa-angle-right"></i></button>
+        <p id="paragraph"></p>
+    </div>
+    <script>
+        let password_input  = document.querySelector(".password-input");
+        let btn = document.getElementById("btn");
+        let paragraph  = document.getElementById("paragraph");
+
+        btn.addEventListener("click", (e)=>{
+            e.preventDefault();
+            password = password_input.value;
+            if(password == 0){
+                paragraph.style.display = "block";
+                paragraph.innerText = "Enter the Password";
+                password_input.classList.add("weak");
+                setTimeout(()=>{
+                    password_input.classList.remove("weak");
+                    paragraph.style.display = "none";
+                },3000)
+            }else if(password.length < 8){
+                paragraph.style.display = "block";
+                paragraph.innerText = "Password must contains 8 characters";
+                password_input.classList.add("weak");
+                setTimeout(()=>{
+                    password_input.classList.remove("weak");
+                    paragraph.style.display = "none";
+                },3000)
+            }else if(password.match(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/)){
+                paragraph.style.display = "block";
+                paragraph.innerText = "Password is Strong";
+                password_input.classList.add("strong");
+                setTimeout(()=>{
+                    paragraph.style.display = "none";
+                    password_input.classList.remove("strong");
+                },3000)
+            }else{
+                paragraph.style.display = "block";
+                paragraph.innerText = "Password must contains atleast onr character and one symbol";
+                password_input.classList.add("weak");
+                setTimeout(()=>{
+                    paragraph.style.display = "none";
+                    password_input.classList.remove("weak");
+                },3000)
+            }
+        })
+    </script>
+</body>
+</html>

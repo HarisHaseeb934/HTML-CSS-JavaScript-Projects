@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .calculator h1 {
+            padding: 1rem;
+            font-size: 2.5rem;
+        }
+
+        #input {
+            font-size: 1.5em;
+            width: 90%;
+            height: 2rem;   
+            padding: 0.5rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            display: grid;
+            margin-top: 40px;
+            grid-template-columns: repeat(4, 60px);
+            gap: 1.2rem;
+        }
+
+        button {
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            height: 3rem;
+            font-size: 1.2em;
+        }
+        .equal{
+            background-color: green;
+            color: white;
+        }
+        .clear{
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        <input type="text" id="input" disabled>
+        <div class="btn">
+            <button onclick="append('7')" >7</button>
+            <button onclick="append('8')" >8</button>
+            <button onclick="append('9')" >9</button>
+            <button onclick="append('/')" >÷</button> 
+
+            <button onclick="append('4')" >4</button>
+            <button onclick="append('5')" >5</button>
+            <button onclick="append('6')" >6</button>
+            <button onclick="append('x')" >x</button>
+
+            <button onclick="append('1')" >1</button>
+            <button onclick="append('2')" >2</button>
+            <button onclick="append('3')" >3</button>
+            <button onclick="append('-')" >-</button>
+
+            <button onclick="append('0')">0</button>
+            <button onclick="append('.')">.</button>
+            <button onclick="calculate()" class="equal">=</button>
+            <button onclick="append('+')">+</button>
+
+            <button class="clear" onclick="clearinput()" style="grid-column: span 4;">C</button>
+        </div>
+    </div>
+    <script>
+        document.body.addEventListener('keydown', (e)=>{
+            e.preventDefault();
+            console.log(e.key)
+            switch(e.key){
+                case "0":append('0');
+                break;
+                case "1":append('1');
+                break;
+                case "2":append('2');
+                break;
+                case "3":append('3');
+                break;
+                case "4":append('4');
+                break;
+                case "5":append('5');
+                break;
+                case "6":append('6');
+                break;
+                case "7":append('7');
+                break;
+                case "8":append('8');
+                break;
+                case "9":append('9');
+                break;
+                case "Enter":calculate();
+                break;
+                case "Backspace":clearinput();
+                break;
+            }
+        })
+        
+        let display = document.querySelector("#input");
+        function append(value){
+            display.value+= value
+        }
+        function calculate(){
+            display.value = eval(display.value)
+        }
+        function clearinput(){
+            display.value = "";
+        }
+    </script>
+</body>
+
+
+</html>

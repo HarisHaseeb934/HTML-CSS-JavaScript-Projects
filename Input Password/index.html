@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide Password</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width:100%;
+            height:100vh;
+            background-color: #230957;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container input{
+            font-size: 25px;
+            outline: none;
+            border: none;
+        }
+        .container img{
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="password" id="pass" placeholder="Password">
+        <img src="eye-close.png" alt="" id="img" onclick="show()">
+    </div>
+    <script>
+        let pass = document.getElementById("pass");
+        let img = document.getElementById("img");
+        function show(){
+            if(pass.type ==="password"){
+                pass.type = "text";
+                img.src = "eye-open.png";
+            }else{
+                pass.type = "password";
+                img.src = "eye-close.png";
+            }
+
+        }
+    </script>
+</body>
+</html>

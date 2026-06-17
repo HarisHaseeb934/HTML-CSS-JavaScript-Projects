@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            height: 400px;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .image{
+            margin: 30px;
+        }
+        .image img{
+            width: 100px;
+        }
+        .container p {
+            font-size: 25px;
+            margin: 5px 40px;
+            color: white;
+        }
+        .container button{
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            background-color: yellow;
+            padding: 10px;
+            width: 100px;
+            border: none;
+            margin: 30px;
+        }
+        .container button:hover{
+            background: rgb(199, 199, 4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="Smiling with Sweat Emoji.png" alt="">
+        </div>
+        <p class="setup"></p>
+        <p class="punch"></p>
+        <button onclick="joke()">Next</button>
+    </div>
+    <script>
+        let setup = document.querySelector(".setup");
+        let punch = document.querySelector(".punch");
+        let url = "https://v2.jokeapi.dev/joke/Programming?type=twopart";
+        async function joke(){
+            let response = await fetch(url);
+            let data = await response.json();
+            console.log(data);
+            setup.innerText = data["setup"];
+            punch.innerText = data["delivery"];
+        }
+        joke();
+    </script>
+</body>
+</html>

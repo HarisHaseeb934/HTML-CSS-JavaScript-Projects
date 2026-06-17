@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BackGround Change</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .imgbox{
+            margin: auto;
+            background-image: url(background.png);
+            position: relative;
+            overflow: hidden;
+        }
+        .imgupper{
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="imgbox">
+            <img src="Adobe Express - file.png" alt="" width="100%">
+
+            <div class="imgupper">
+                <img src="original (1).jpg" alt="" id="original">
+            </div>
+        </div>
+    </div>
+    <script>
+        let imgbox = document.querySelector(".imgbox");
+        let imgupper = document.querySelector(".imgupper");
+        let original = document.getElementById("original");
+
+        original.style.width = `${imgbox.offsetWidth}px`;
+
+        let leftspace = imgbox.offsetLeft;
+
+        imgbox.onmousemove = function(e){
+            e.pageX;
+            let boxwidth = `${e.pageX - leftspace}px`
+            imgupper.style.width = boxwidth;
+        }
+    </script>
+</body>
+</html>

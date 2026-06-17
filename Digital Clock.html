@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: yellow;
+        }
+
+        .clock {
+            font-size: 5rem;
+            border: 4px solid black;
+            text-align: center;
+            border-radius: 20px;
+            background-color: black;
+            color: yellow;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="clock"></p>
+    <script>
+        let clockdisplay = document.querySelector(".clock")
+        function clock() {
+            let date = new Date();
+            clockdisplay.innerText = date.toLocaleTimeString("en", "us")
+        }
+        setInterval(clock, 1000)
+    </script>
+</body>
+
+</html>

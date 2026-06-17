@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #00203a;
+}
+
+.container {
+    max-width: 700px;
+    margin: 100px auto;
+}
+
+.heading h1 {
+    font-size: 40px;
+    margin: 10px auto 10px auto;
+    color: white;
+}
+
+.heading :nth-child(2) {
+    text-decoration: underline;
+    text-underline-offset: 20px;
+    color: #028d51;
+}
+
+.check {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.length{
+    font-size: 20px;
+    color: white;
+}
+#length{
+    width: 200px;
+    height: 20px;
+    outline: none;
+    padding: 5px;
+}
+.gen-pass{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 450px;
+}
+.gen-pass img{
+    width: 20px; 
+    padding: 5px;
+    border-radius: 10px;
+}
+.gen-pass img:hover{
+    background-color: grey;
+}
+#genpass{
+    width: 400px;
+    height: 50px;
+    padding-left: 10px;
+    outline: none;
+    background-color: white;
+    font-weight: 750 ;
+    font-size: 17px;
+    border: none;
+}
+#genbtn{
+    width: 200px;
+    font-size: 15px;
+    padding: 10px;
+    background-color: #017e4d;
+    color: white;
+    border: none;
+}
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast Notification</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <div id="btns">
+        <button id="success" onclick="addtoast(`<i class='fa-solid fa-circle-check'></i>Successfully Submitted`)">Success</button>
+        <button id="error" onclick="addtoast(`<i class='fa-solid fa-circle-xmark'></i>Please Fix the Error`)">Error</button>
+        <button id="invalid" onclick="addtoast(`<i class='fa-solid fa-circle-exclamation'></i>Invalid Input`)">Invalid</button>
+    </div>
+    <div id="toastbox"></div>
+    <script src="app.js"></script>
+</body>
+</html>
