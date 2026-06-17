@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            background-color: #212121;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .left, .right{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 500px;
+            border: 2px dashed white;
+        }
+        .item{
+            width: 250px;
+            height: 60px;
+            background-color: red;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="item" draggable="true">Item 1</div>
+            <div class="item" draggable="true">Item 2</div>
+            <div class="item" draggable="true">Item 3</div>
+            <div class="item" draggable="true">Item 4</div>
+        </div>
+        <div class="right"></div>
+    </div>
+    <script>
+        let left = document.querySelector(".left");
+        let right = document.querySelector(".right");
+
+        let items = document.querySelectorAll(".item");
+
+        items.forEach((item)=>{
+            item.addEventListener("dragstart", (e)=>{
+                let select = e.target;
+
+                right.addEventListener("dragover",(e)=>{
+                    e.preventDefault();
+                })
+                right.addEventListener("drop",(e)=>{
+                    right.appendChild(select);
+                    select = null;
+                })
+
+                left.addEventListener("dragover",(e)=>{
+                    e.preventDefault();
+                })
+                left.addEventListener("drop",(e)=>{
+                    left.appendChild(select);
+                    select = null;
+                })
+            })
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Range Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #3264fe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 90vmin;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 30px 20px;
+            border-radius: 5px;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 80%;
+            height: 8px;
+            background-color: #d5d5d5;
+            border-radius: 8px;
+        }
+
+        input[type="range"]::-webkit-slider-runnable-track {
+            -webkit-appearance: none;
+            height: 8px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            background-color: #3264fe;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-top: -6px;
+        }
+
+        input[type="range"]:active::-webkit-slider-thumb {
+            background-color: #ffffff;
+            border: 3px solid #3264fe;
+        }
+
+        .slider-value {
+            width: 70px;
+            background-color: #3264fe;
+            color: #ffffff;
+            text-align: center;
+            font-family: "Roboto Mono", monospace;
+            padding: 10px 0;    
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="range" min="0" max="100" value="50" id="slider"
+        oninput="onslider()">
+        <div class="slider-value">0</div>
+    </div>
+    <script>
+        let slider = document.querySelector("#slider");
+        let slidervalue = document.querySelector(".slider-value");
+        function onslider(){
+            let percent = (slider.value / slider.max) * 100;
+            slider.style.background = `linear-gradient(to right, #3264fe ${percent}%, #d5d5d5 ${percent}%)`;
+            slidervalue.innerText = slider.value;
+        }
+    </script>
+</body>
+
+</html>
